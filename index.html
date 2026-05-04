@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison historique à Honfleur</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="logo">Honfleur Stay</div>
+  <div class="lang">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ru')">RU</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <img src="images/518747323.jpg" alt="Maison à Honfleur">
+  <div class="hero-card">
+    <p id="heroBadge"></p>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+    <button class="main-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" id="heroButton"></button>
+  </div>
+</section>
+
+<section class="container">
+  <div class="intro">
+    <div>
+      <h2 id="introTitle"></h2>
+      <p id="desc"></p>
+    </div>
+    <div class="rating-card">
+      <div class="stars">★★★★★</div>
+      <strong>4.9</strong>
+      <span id="ratingText"></span>
+    </div>
+  </div>
+
+  <div class="features">
+    <div><strong>🏛️</strong><span id="feature1"></span></div>
+    <div><strong>🏡</strong><span id="feature2"></span></div>
+    <div><strong>📍</strong><span id="feature3"></span></div>
+    <div><strong>🌊</strong><span id="feature4"></span></div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 id="galleryTitle"></h2>
+  <div class="gallery">
+    <img src="images/518747324.jpg">
+    <img src="images/518747325.jpg">
+    <img src="images/518747328.jpg">
+    <img src="images/518747329.jpg">
+    <img src="images/518747331.jpg">
+    <img src="images/518747333.jpg">
+    <img src="images/518747334.jpg">
+    <img src="images/518747335.jpg">
+    <img src="images/518747337.jpg">
+    <img src="images/518747339.jpg">
+    <img src="images/518747341.jpg">
+    <img src="images/518747342.jpg">
+  </div>
+</section>
+
+<section class="container two-columns">
+  <div class="details">
+    <h2 id="detailsTitle"></h2>
+    <ul>
+      <li id="detail1"></li>
+      <li id="detail2"></li>
+      <li id="detail3"></li>
+      <li id="detail4"></li>
+      <li id="detail5"></li>
+    </ul>
+  </div>
+
+  <div class="booking-card" id="booking">
+    <h2 id="bookingTitle"></h2>
+    <label id="arrivalLabel"></label>
+    <input type="date">
+    <label id="departureLabel"></label>
+    <input type="date">
+    <button class="main-btn" id="bookingButton" onclick="alertBooking()"></button>
+    <p class="small" id="bookingNote"></p>
+  </div>
+</section>
+
+<section class="contact">
+  <h2 id="contactTitle"></h2>
+  <p id="contactText"></p>
+  <div class="contact-buttons">
+    <a href="mailto:your@email.com" id="emailButton"></a>
+    <a href="tel:+33XXXXXXXXX" id="phoneButton"></a>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

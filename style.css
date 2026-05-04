@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+.topbar {
+  height: 72px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+  color: #ff385c;
+}
+
+.lang button {
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(72%);
+}
+
+.hero-card {
+  position: absolute;
+  left: 6%;
+  bottom: 70px;
+  max-width: 620px;
+  color: white;
+}
+
+.hero-card h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  margin: 10px 0;
+}
+
+.hero-card p {
+  font-size: 20px;
+}
+
+#heroBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  padding: 8px 14px;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+}
+
+.main-btn {
+  background: #ff385c;
+  color: white;
+  border: none;
+  padding: 15px 24px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 55px 24px;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 30px;
+  align-items: start;
+}
+
+.intro h2,
+.container h2,
+.contact h2 {
+  font-size: 34px;
+  margin-top: 0;
+}
+
+.intro p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.rating-card {
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-radius: 24px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stars {
+  color: #ff385c;
+  letter-spacing: 2px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.features div {
+  padding: 22px;
+  border: 1px solid #eee;
+  border-radius: 22px;
+  background: #fafafa;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+  filter: brightness(90%);
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+.details ul {
+  padding-left: 20px;
+  font-size: 18px;
+  line-height: 2;
+  color: #444;
+}
+
+.booking-card {
+  border: 1px solid #eee;
+  border-radius: 28px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+  padding: 28px;
+  position: sticky;
+  top: 95px;
+}
+
+.booking-card label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.booking-card input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.booking-card button {
+  width: 100%;
+  margin-top: 22px;
+}
+
+.small {
+  color: #777;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.contact p {
+  color: #ccc;
+  font-size: 18px;
+}
+
+.contact-buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 22px;
+  background: white;
+  color: #111;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .hero-card h1 {
+    font-size: 38px;
+  }
+
+  .intro,
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .features,
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    height: 520px;
+  }
+}
