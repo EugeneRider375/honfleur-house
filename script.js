@@ -5,7 +5,7 @@ const data = {
     subtitle: "Une maison de charme sur 4 étages, au cœur du centre historique, à quelques pas du Vieux Bassin.",
     heroButton: "Voir les disponibilités",
     introTitle: "Un lieu rare pour découvrir la Normandie",
-    desc: "Cette belle maison ancienne offre une atmosphère chaleureuse et élégante, parfaite pour un séjour en famille, entre amis ou pour une escapade romantique. Située dans le centre historique de Honfleur, elle permet de profiter à pied du port, des restaurants, des galeries d’art, des ruelles pavées et de l’ambiance unique de la ville. Avec ses 4 étages, son caractère authentique et son confort moderne, la maison offre une expérience beaucoup plus intime et mémorable qu’un simple hôtel.",
+    desc: "Cette belle maison ancienne offre une atmosphère chaleureuse et élégante, parfaite pour un séjour en famille, entre amis ou pour une escapade romantique. Située dans le centre historique de Honfleur, elle permet de profiter à pied du port, des restaurants, des galeries d’art, des ruelles pavées et de l’ambiance unique de la ville.",
     ratingText: "Avis voyageurs",
     feature1: "Bâtiment historique",
     feature2: "Maison sur 4 étages",
@@ -27,16 +27,15 @@ const data = {
     contactText: "Pour toute question ou demande de disponibilité, contactez-nous directement.",
     emailButton: "📧 Envoyer un email",
     phoneButton: "📞 Appeler",
-    alert: "Merci ! Le calendrier est une démonstration. La réservation sera connectée plus tard."
+    alert: "Merci ! Le calendrier est une démonstration."
   },
-
   en: {
     heroBadge: "Historic house in central Honfleur",
     title: "Stay in a unique home in Honfleur",
     subtitle: "A charming 4-floor house in the historic centre, just a short walk from the Vieux Bassin.",
     heroButton: "Check availability",
     introTitle: "A rare place to experience Normandy",
-    desc: "This beautiful historic house offers a warm and elegant atmosphere, perfect for a family stay, a trip with friends, or a romantic escape. Located in the historic centre of Honfleur, it lets you enjoy the harbour, restaurants, art galleries, cobbled streets and the unique charm of the town on foot. With its 4 floors, authentic character and modern comfort, the house offers a much more personal and memorable experience than a standard hotel.",
+    desc: "This beautiful historic house offers a warm and elegant atmosphere, perfect for a family stay, a trip with friends, or a romantic escape. Located in the historic centre of Honfleur, it lets you enjoy the harbour, restaurants, art galleries and cobbled streets on foot.",
     ratingText: "Guest reviews",
     feature1: "Historic building",
     feature2: "4-floor house",
@@ -58,16 +57,15 @@ const data = {
     contactText: "For questions or availability, contact us directly.",
     emailButton: "📧 Send email",
     phoneButton: "📞 Call",
-    alert: "Thank you! The calendar is a demo. Booking will be connected later."
+    alert: "Thank you! The calendar is a demo."
   },
-
   ru: {
     heroBadge: "Исторический дом в центре Онфлёра",
     title: "Остановитесь в уникальном доме в Онфлёре",
-    subtitle: "Очаровательный дом в 4 этажа в историческом центре, всего в нескольких минутах от старого порта.",
+    subtitle: "Очаровательный дом в 4 этажа в историческом центре, рядом со старым портом.",
     heroButton: "Посмотреть даты",
     introTitle: "Редкое место для отдыха в Нормандии",
-    desc: "Этот красивый старинный дом создаёт тёплую и элегантную атмосферу, идеально подходящую для семейного отдыха, поездки с друзьями или романтического уикенда. Дом расположен в историческом центре Онфлёра, поэтому до порта, ресторанов, художественных галерей, старинных улочек и главных достопримечательностей можно дойти пешком. Четыре этажа, характер исторического здания и современный комфорт делают проживание здесь гораздо более личным и запоминающимся, чем обычный отель.",
+    desc: "Этот красивый старинный дом создаёт тёплую и элегантную атмосферу, идеально подходящую для семейного отдыха, поездки с друзьями или романтического уикенда. Дом расположен в историческом центре Онфлёра, рядом с портом, ресторанами, галереями и старинными улочками.",
     ratingText: "Отзывы гостей",
     feature1: "Историческое здание",
     feature2: "Дом в 4 этажа",
@@ -77,9 +75,9 @@ const data = {
     detailsTitle: "Что особенно понравится",
     detail1: "Идеальное расположение в историческом центре Онфлёра.",
     detail2: "Дом с характером, старинным шармом и приятным оформлением.",
-    detail3: "Уютные пространства для отдыха после прогулок и экскурсий.",
+    detail3: "Уютные пространства для отдыха после прогулок.",
     detail4: "Рестораны, кафе, магазины и галереи находятся рядом.",
-    detail5: "Отличная база для поездок в Онфлёр, Довиль, Трувиль и по Цветочному берегу.",
+    detail5: "Отличная база для поездок в Онфлёр, Довиль и Трувиль.",
     bookingTitle: "Забронировать проживание",
     arrivalLabel: "Дата заезда",
     departureLabel: "Дата выезда",
@@ -89,7 +87,7 @@ const data = {
     contactText: "По вопросам свободных дат и бронирования свяжитесь с нами напрямую.",
     emailButton: "📧 Написать email",
     phoneButton: "📞 Позвонить",
-    alert: "Спасибо! Календарь пока демонстрационный. Бронирование подключим позже."
+    alert: "Спасибо! Календарь пока демонстрационный."
   }
 };
 
@@ -99,7 +97,7 @@ function setLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
 
-  Object.keys(data[lang]).forEach((key) => {
+  Object.keys(data[lang]).forEach(key => {
     const el = document.getElementById(key);
     if (el) el.innerText = data[lang][key];
   });
@@ -109,88 +107,50 @@ function alertBooking() {
   alert(data[currentLang].alert);
 }
 
-setLang("fr");
-const galleryImages = Array.from(document.querySelectorAll(".gallery img"));
+document.addEventListener("DOMContentLoaded", () => {
+  setLang("fr");
 
-galleryImages.forEach((img, index) => {
-  img.addEventListener("click", () => {
-    openGallery(index);
+  const images = Array.from(document.querySelectorAll(".gallery img"));
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentIndex = index;
+      openGallery();
+    });
   });
+
+  function openGallery() {
+    const overlay = document.createElement("div");
+    overlay.className = "photo-overlay";
+
+    overlay.innerHTML = `
+      <button class="close-btn">×</button>
+      <button class="nav-btn prev-btn">‹</button>
+      <img class="fullscreen-img" src="${images[currentIndex].src}">
+      <button class="nav-btn next-btn">›</button>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const bigImg = overlay.querySelector(".fullscreen-img");
+
+    overlay.querySelector(".close-btn").onclick = () => overlay.remove();
+
+    overlay.querySelector(".next-btn").onclick = (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      bigImg.src = images[currentIndex].src;
+    };
+
+    overlay.querySelector(".prev-btn").onclick = (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      bigImg.src = images[currentIndex].src;
+    };
+
+    bigImg.onclick = (e) => e.stopPropagation();
+
+    overlay.onclick = () => overlay.remove();
+  }
 });
-
-function openGallery(startIndex) {
-  let currentIndex = startIndex;
-
-  const overlay = document.createElement("div");
-  overlay.className = "photo-overlay";
-
-  const closeBtn = document.createElement("button");
-  closeBtn.className = "close-btn";
-  closeBtn.innerText = "×";
-
-  const prevBtn = document.createElement("button");
-  prevBtn.className = "nav-btn prev-btn";
-  prevBtn.innerText = "‹";
-
-  const nextBtn = document.createElement("button");
-  nextBtn.className = "nav-btn next-btn";
-  nextBtn.innerText = "›";
-
-  const bigImg = document.createElement("img");
-  bigImg.className = "fullscreen-img";
-
-  function showImage() {
-    bigImg.src = galleryImages[currentIndex].src;
-  }
-
-  function nextImage() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    showImage();
-  }
-
-  function prevImage() {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    showImage();
-  }
-
-  nextBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    nextImage();
-  });
-
-  prevBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    prevImage();
-  });
-
-  closeBtn.addEventListener("click", () => {
-    overlay.remove();
-  });
-
-  overlay.addEventListener("click", () => {
-    overlay.remove();
-  });
-
-  bigImg.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
-  document.addEventListener("keydown", function handleKeys(e) {
-    if (!document.body.contains(overlay)) {
-      document.removeEventListener("keydown", handleKeys);
-      return;
-    }
-
-    if (e.key === "ArrowRight") nextImage();
-    if (e.key === "ArrowLeft") prevImage();
-    if (e.key === "Escape") overlay.remove();
-  });
-
-  overlay.appendChild(bigImg);
-  overlay.appendChild(closeBtn);
-  overlay.appendChild(prevBtn);
-  overlay.appendChild(nextBtn);
-  document.body.appendChild(overlay);
-
-  showImage();
-}

@@ -254,3 +254,52 @@ body {
     height: 520px;
   }
 }
+.photo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.96);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.close-btn,
+.nav-btn {
+  position: fixed;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100000;
+}
+
+.close-btn {
+  top: 25px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+}
+
+.nav-btn {
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 42px;
+}
+
+.prev-btn {
+  left: 30px;
+}
+
+.next-btn {
+  right: 30px;
+}
