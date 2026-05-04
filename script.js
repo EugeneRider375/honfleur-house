@@ -110,3 +110,34 @@ function alertBooking() {
 }
 
 setLang("fr");
+document.querySelectorAll(".gallery img").forEach(img => {
+  img.addEventListener("click", () => {
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.background = "rgba(0,0,0,0.95)";
+    overlay.style.display = "flex";
+    overlay.style.justifyContent = "center";
+    overlay.style.alignItems = "center";
+    overlay.style.zIndex = "9999";
+
+    const bigImg = document.createElement("img");
+    bigImg.src = img.src;
+    bigImg.style.width = "100%";
+    bigImg.style.height = "100%";
+    bigImg.style.objectFit = "cover";
+    bigImg.style.cursor = "zoom-out";
+
+    overlay.appendChild(bigImg);
+
+    overlay.addEventListener("click", () => {
+      overlay.remove();
+    });
+
+    document.body.appendChild(overlay);
+  });
+});
