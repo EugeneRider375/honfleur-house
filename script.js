@@ -110,34 +110,87 @@ function alertBooking() {
 }
 
 setLang("fr");
-document.querySelectorAll(".gallery img").forEach(img => {
+const galleryImages = Array.from(document.querySelectorAll(".gallery img"));
+
+galleryImages.forEach((img, index) => {
   img.addEventListener("click", () => {
-
-    const overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100vw";
-    overlay.style.height = "100vh";
-    overlay.style.background = "rgba(0,0,0,0.95)";
-    overlay.style.display = "flex";
-    overlay.style.justifyContent = "center";
-    overlay.style.alignItems = "center";
-    overlay.style.zIndex = "9999";
-
-    const bigImg = document.createElement("img");
-    bigImg.src = img.src;
-    bigImg.style.width = "100%";
-    bigImg.style.height = "100%";
-    bigImg.style.objectFit = "cover";
-    bigImg.style.cursor = "zoom-out";
-
-    overlay.appendChild(bigImg);
-
-    overlay.addEventListener("click", () => {
-      overlay.remove();
-    });
-
-    document.body.appendChild(overlay);
+    openGallery(index);
   });
 });
+
+function openGallery(startIndex) {
+  let currentIndex = startIndex;
+
+  const overlay = document.createElement("div");
+  overlay.className = "photo-overlay";
+
+  const closeBtn = document.createElement("button");
+  closeBtn.className = "close-btn";
+  closeBtn.innerText = "×";
+
+  const prevBtn = document.createElement("button");
+  prevBtn.className = "nav-btn prev-btn";
+  prevBtn.innerText = "‹";
+
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "nav-btn next-btn";
+  nextBtn.innerText = "›";
+
+  const bigImg = document.createElement("img");
+  bigImg.className = "fullscreen-img";
+
+  function showImage() {
+    bigImg.src = galleryImages[currentIndex].src;
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    showImage();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImage();
+  }
+
+  nextBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    nextImage();
+  });
+
+  prevBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    prevImage();
+  });
+
+  closeBtn.addEventListener("click", () => {
+    overlay.remove();
+  });
+
+  overlay.addEventListener("click", () => {
+    overlay.remove();
+  });
+
+  bigImg.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener("keydown", function handleKeys(e) {
+    if (!document.body.contains(overlay)) {
+      document.removeEventListener("keydown", handleKeys);
+      return;
+    }
+
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+    if (e.key === "Escape") overlay.remove();
+  });
+
+  overlay.appendChild(bigImg);
+  overlay.appendChild(closeBtn);
+  overlay.appendChild(prevBtn);
+  overlay.appendChild(nextBtn);
+  document.body.appendChild(overlay);
+
+  showImage();
+}
