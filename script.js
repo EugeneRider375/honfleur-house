@@ -27,6 +27,7 @@ const data = {
     contactText: "Pour toute question ou demande de disponibilité, contactez-nous directement.",
     emailButton: "📧 Envoyer un email",
     phoneButton: "📞 Appeler",
+    whatsappButton: "💬 WhatsApp",
     alert: "Merci ! Le calendrier est une démonstration."
   },
   en: {
@@ -57,6 +58,7 @@ const data = {
     contactText: "For questions or availability, contact us directly.",
     emailButton: "📧 Send email",
     phoneButton: "📞 Call",
+    whatsappButton: "💬 WhatsApp",
     alert: "Thank you! The calendar is a demo."
   },
   ru: {
@@ -87,6 +89,7 @@ const data = {
     contactText: "По вопросам свободных дат и бронирования свяжитесь с нами напрямую.",
     emailButton: "📧 Написать email",
     phoneButton: "📞 Позвонить",
+    whatsappButton: "💬 WhatsApp",
     alert: "Спасибо! Календарь пока демонстрационный."
   }
 };
@@ -152,5 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
     bigImg.onclick = (e) => e.stopPropagation();
 
     overlay.onclick = () => overlay.remove();
+  }
+});
+const whatsappLink = "https://wa.me/33677621005?text=Bonjour%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20la%20maison%20%C3%A0%20Honfleur.";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const whatsappButton = document.getElementById("whatsappButton");
+  if (whatsappButton) {
+    whatsappButton.href = whatsappLink;
   }
 });

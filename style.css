@@ -303,3 +303,17 @@ body {
 .next-btn {
   right: 30px;
 }
+.whatsapp {
+  background: #25D366 !important;
+  color: white !important;
+}
+
+.phone {
+  background: #ffffff !important;
+  color: #111 !important;
+}
+
+.email {
+  background: #ff385c !important;
+  color: white !important;
+}
